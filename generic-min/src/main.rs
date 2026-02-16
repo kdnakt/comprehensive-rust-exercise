@@ -2,10 +2,9 @@ use std::cmp::Ordering;
 
 // TODO: `main` で使用する `min` 関数を実装します。
 fn min<T: Ord>(a: T, b: T) -> T {
-    if a <= b {
-        a
-    } else {
-        b
+    match a.cmp(&b) {
+        Ordering::Less | Ordering::Equal => a,
+        Ordering::Greater => b,
     }
 }
 
